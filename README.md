@@ -1,4 +1,4 @@
-# familyTreeTools
+# Family Tree Tools
 A collection of web apps that leverage APIs to assist in doing genealogy work.
 
 ===
