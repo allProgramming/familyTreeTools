@@ -1,0 +1,70 @@
+<html>
+<head>
+  <!-- Third-Party Dependencies -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css"
+    integrity="sha256-lCqHBvboFPu7gyEswcz5UdbXKyB6FDOtfbOeMvUEfkY="
+    crossorigin="anonymous" />
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <script
+    src="https://unpkg.com/fs-js-lite@latest/dist/FamilySearch.min.js"></script>
+
+  <!-- Local Modules -->
+  <script src="../../libraries/FSBoilerplate/FSBoilerplate.js"></script>
+
+  <!-- Hello World demonstration (show current user's name, after login) -->
+  <script type="text/javascript">
+    /**
+     * Set your app key here!
+     */
+    const APP_KEY = '';
+    const USAGE =
+      'Your app key was not specified in the code. Please update the code, ' +
+      'or enter your app key now:';
+    FSBoilerplate
+      .setAppKey(APP_KEY || prompt(USAGE))
+      .setLoggedInCallback(function(client) {
+        $('#fs_name_loader').show();  // Indicate that we're loading a name
+        client.get('/platform/users/current', function(error, response){
+          $('#fs_name_loader').hide();  // Process is complete!
+          var msg =
+            error ?
+              ("Error: " + error) :
+              ("Hello " + response.data.users[0].displayName + "!");
+          $('#fs_current_name').text(msg);  // Show name, or error message
+        });
+      })
+      .go();
+  </script>
+</head>
+
+<body>
+  <div class="ui text container center aligned segment" style="margin: 100px">
+    <div class="fsLoggedOutContent" style="display: none;">
+      <h2 class="ui header">
+        Hello World!
+      </h2>
+      <button class="ui primary button fsLoginButton"></button>
+    </div>
+
+    <div class="fsLoggingInContent" style="display: none;">
+      <div class="fsLoggingInContent ui text active inline loader">
+        Completing Family Search login
+      </div>
+    </div>
+
+    <div class="fsLoggedInContent" style="display: none;">
+      <div id="fs_name_loader" class="ui text active inline loader">
+        Loading Person
+      </div>
+      <h2 id="fs_current_name" class="ui header"></h2>
+      <button class="ui primary button fsLoginButton"></button>
+    </div>
+
+  </div>
+</body>
+</html>
