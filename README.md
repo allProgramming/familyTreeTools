@@ -3,6 +3,7 @@ A collection of web apps that leverage APIs to assist in doing genealogy work.
 
 ## Getting Started
 
+* Get an app key from Family Search for testing and development
 * Ensure that Python is installed
 * Clone this repo
 * From the commandline, go to the directory for this repo, and run: `python -m SimpleHTTPServer`
