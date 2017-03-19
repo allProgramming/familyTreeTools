@@ -1,14 +1,14 @@
 /**
- * Family Search Boilerplate module
+ * FamilySearch Boilerplate module
  * (Dependencies: jQuery and fs-js-lite)
  *
  * The purpose of this module is to simplify:
- *   - Logging in/out of Family Search
+ *   - Logging in/out of FamilySearch
  *   - Rendering the appropriate content depending on logged-in/out state
  * (in a JavaScript web app).
  *
  * Prerequisites:
- *   1. Get an app key from Family Search for testing and development
+ *   1. Get an app key from FamilySearch for testing and development
  *   2. Add a <script> tag to your HTML document for each of these dependencies:
  *     - jQuery
  *     - fs-js-lite
@@ -31,7 +31,7 @@
  * "display: none;". For example:
  *
  *   <div class="fsLoggedOutContent" style="display: none;">
- *     You are not logged in to Family Search.
+ *     You are not logged in to FamilySearch.
  *   </div>
  *
  * Given the above scenario, FSBoilerplate will update the button to handle
@@ -45,7 +45,7 @@
 
 var FSBoilerplate = (function() {
   // Parameters
-  var _environment = 'integration';  // Family Search reference environment
+  var _environment = 'integration';  // FamilySearch reference environment
   var _appKey = null;
   var _loggedInCallback = function() {};
 
@@ -57,7 +57,7 @@ var FSBoilerplate = (function() {
    **************/
 
   /**
-   * Set the Family Search reference environment (optional)
+   * Set the FamilySearch reference environment (optional)
    *
    * Default (if not provided) is 'integration'.
    * See fs-js-lite documentation for other options.
@@ -68,7 +68,7 @@ var FSBoilerplate = (function() {
   }
 
   /**
-   * Set the Family Search app key (required)
+   * Set the FamilySearch app key (required)
    */
   function setAppKey(appKey) {
     _appKey = appKey;
@@ -97,7 +97,7 @@ var FSBoilerplate = (function() {
    * Perform all of the primary functions of FSBoilerplate (required)
    *
    * This must be called after all necessary "set" methods have been called.
-   * It handles logging in/out of Family Search, and updating HTML content.
+   * It handles logging in/out of FamilySearch, and updating HTML content.
    */
   function go() {
     _client = new FamilySearch({
@@ -127,12 +127,12 @@ var FSBoilerplate = (function() {
           var button = $(this);
           button.prop('disabled', _isLoggingIn());
           if (!isLoggedIn) {
-            button.text('Log in with Family Search');
+            button.text('Log in with FamilySearch');
             button.click(function() {
               _client.oauthRedirect();
             });
           } else {
-            button.text('Log out of Family Search');
+            button.text('Log out of FamilySearch');
             button.click(function() {
               _client.deleteAccessToken();
               location.reload();
