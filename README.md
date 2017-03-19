@@ -11,6 +11,7 @@ A collection of web apps that leverage APIs to assist in doing genealogy work.
 ## Hello World (and FSBoilerplate)
 FSBoilerplate was created as a JavaScript library/module to simplify the Family Search login/out process (in JavaScript web apps). The Hello World tutorial demonstrates the usage of FSBoilerplate.
 
+* On the Family Search Developers website, add the following URL to the list of approved "Redirect URI"s for your app - http://localhost:8000/tutorials/helloWorld/
 * Open a web browser, and enter the following URL - http://localhost:8000/tutorials/helloWorld/
 * Read documentation in the FSBoilerplate.js file, and read through the helloWorld/index.html code
 
